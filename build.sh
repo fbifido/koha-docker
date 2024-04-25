@@ -6,7 +6,7 @@ find_version() {
     grep --max-count=1 --only-matching "$1\.[0-9][0-9]" "$1/Dockerfile"
 }
 
-for v in 21.11 22.05 22.11 23.05; do
+for v in 22.11 23.05; do
     podman build --tag ghcr.io/jajm/koha:"$(find_version $v)" --tag ghcr.io/jajm/koha:"$v" "$v"
 done
 podman tag ghcr.io/jajm/koha:23.05 ghcr.io/jajm/koha:latest
