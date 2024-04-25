@@ -107,25 +107,25 @@ docker build --tag koha:master master
 
 docker run -d \
     -e MYSQL_HOST=mariadb \
-    -e MYSQL_PORT=3307 \
+    -e MYSQL_PORT=3306 \
     -e MYSQL_DATABASE=koha_master \
     -e MYSQL_USER=koha_master \
     -e MYSQL_PASSWORD=Secr3t! \
-    -e MEMCACHED_SERVER=memcached:22122 \
+    -e MEMCACHED_SERVER=memcached:11211 \
     -e MEMCACHED_NAMESPACE=koha_master
-    -e ELASTICSEARCH_SERVER=elasticsearch6:9200 \
+    -e ELASTICSEARCH_SERVER=elasticsearch:9200 \
     -e ELASTICSEARCH_INDEX_NAME=koha_master
     --name koha-intranet --network koha -p 3000:3000 koha:master
 
 docker run -d \
     -e MYSQL_HOST=mariadb \
-    -e MYSQL_PORT=3307 \
+    -e MYSQL_PORT=3306 \
     -e MYSQL_DATABASE=koha_master \
     -e MYSQL_USER=koha_master \
     -e MYSQL_PASSWORD=Secr3t! \
-    -e MEMCACHED_SERVER=memcached:22122 \
+    -e MEMCACHED_SERVER=memcached:11211 \
     -e MEMCACHED_NAMESPACE=koha_master
-    -e ELASTICSEARCH_SERVER=elasticsearch6:9200 \
+    -e ELASTICSEARCH_SERVER=elasticsearch:9200 \
     -e ELASTICSEARCH_INDEX_NAME=koha_master
     --name koha-opac --network koha -p 3001:3000 koha:master bin/opac prefork
 ```
