@@ -12,7 +12,7 @@ services:
         image: memcached:alpine
 
     elasticsearch:
-        image: koha/elasticsearch-icu:6.x
+        image: koha/elasticsearch-icu:7.x
         environment:
             discovery.type: single-node
 
